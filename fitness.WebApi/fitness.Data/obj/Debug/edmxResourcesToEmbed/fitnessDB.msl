@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyFitnessModelStoreContainer" CdmEntityContainer="MyFitnessEntities">
+    <EntitySetMapping Name="avoirRoles">
+      <EntityTypeMapping TypeName="MyFitnessModel.avoirRole">
+        <MappingFragment StoreEntitySet="avoirRole">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="idCoach" ColumnName="idCoach" />
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="idSpecN" ColumnName="idSpecN" />
+          <ScalarProperty Name="idGestionnaire" ColumnName="idGestionnaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="MyFitnessModel.client">
+        <MappingFragment StoreEntitySet="clients">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="coaches">
+      <EntityTypeMapping TypeName="MyFitnessModel.coach">
+        <MappingFragment StoreEntitySet="coach">
+          <ScalarProperty Name="idCoach" ColumnName="idCoach" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="composers">
+      <EntityTypeMapping TypeName="MyFitnessModel.composer">
+        <MappingFragment StoreEntitySet="composer">
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="quentite" ColumnName="quentite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exercices">
+      <EntityTypeMapping TypeName="MyFitnessModel.exercice">
+        <MappingFragment StoreEntitySet="exercices">
+          <ScalarProperty Name="idExercice" ColumnName="idExercice" />
+          <ScalarProperty Name="duree" ColumnName="duree" />
+          <ScalarProperty Name="freqence" ColumnName="freqence" />
+          <ScalarProperty Name="idCoach" ColumnName="idCoach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gestionnaires">
+      <EntityTypeMapping TypeName="MyFitnessModel.gestionnaire">
+        <MappingFragment StoreEntitySet="gestionnaire">
+          <ScalarProperty Name="idGestionnaire" ColumnName="idGestionnaire" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ingredients">
+      <EntityTypeMapping TypeName="MyFitnessModel.ingredient">
+        <MappingFragment StoreEntitySet="ingredients">
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="calories" ColumnName="calories" />
+          <ScalarProperty Name="label" ColumnName="label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="maladies">
+      <EntityTypeMapping TypeName="MyFitnessModel.malady">
+        <MappingFragment StoreEntitySet="maladies">
+          <ScalarProperty Name="nomMaladie" ColumnName="nomMaladie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="questions">
+      <EntityTypeMapping TypeName="MyFitnessModel.question">
+        <MappingFragment StoreEntitySet="questions">
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="idGestionnaire" ColumnName="idGestionnaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="repas">
+      <EntityTypeMapping TypeName="MyFitnessModel.repa">
+        <MappingFragment StoreEntitySet="repas">
+          <ScalarProperty Name="label" ColumnName="label" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="idSpecN" ColumnName="idSpecN" />
+          <ScalarProperty Name="label_typeRepas" ColumnName="label_typeRepas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reponses">
+      <EntityTypeMapping TypeName="MyFitnessModel.repons">
+        <MappingFragment StoreEntitySet="reponses">
+          <ScalarProperty Name="idReponse" ColumnName="idReponse" />
+          <ScalarProperty Name="reponse" ColumnName="reponse" />
+          <ScalarProperty Name="juste" ColumnName="juste" />
+          <ScalarProperty Name="label" ColumnName="label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="MyFitnessModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="nomRole" ColumnName="nomRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="specNutritions">
+      <EntityTypeMapping TypeName="MyFitnessModel.specNutrition">
+        <MappingFragment StoreEntitySet="specNutrition">
+          <ScalarProperty Name="idSpecN" ColumnName="idSpecN" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeIngredients">
+      <EntityTypeMapping TypeName="MyFitnessModel.typeIngredient">
+        <MappingFragment StoreEntitySet="typeIngredient">
+          <ScalarProperty Name="label" ColumnName="label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeOfExercices">
+      <EntityTypeMapping TypeName="MyFitnessModel.typeOfExercice">
+        <MappingFragment StoreEntitySet="typeOfExercice">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeRepas">
+      <EntityTypeMapping TypeName="MyFitnessModel.typeRepa">
+        <MappingFragment StoreEntitySet="typeRepas">
+          <ScalarProperty Name="label" ColumnName="label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="appartient" TypeName="MyFitnessModel.appartient" StoreEntitySet="appartient">
+      <EndProperty Name="exercices">
+        <ScalarProperty Name="idExercice" ColumnName="idExercice" />
+      </EndProperty>
+      <EndProperty Name="typeOfExercice">
+        <ScalarProperty Name="type" ColumnName="type" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="avoir" TypeName="MyFitnessModel.avoir" StoreEntitySet="avoir">
+      <EndProperty Name="maladies">
+        <ScalarProperty Name="nomMaladie" ColumnName="nomMaladie" />
+      </EndProperty>
+      <EndProperty Name="reponses">
+        <ScalarProperty Name="idReponse" ColumnName="idReponse" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="consulter" TypeName="MyFitnessModel.consulter" StoreEntitySet="consulter">
+      <EndProperty Name="clients">
+        <ScalarProperty Name="idClient" ColumnName="idClient" />
+      </EndProperty>
+      <EndProperty Name="exercices">
+        <ScalarProperty Name="idExercice" ColumnName="idExercice" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="excluser" TypeName="MyFitnessModel.excluser" StoreEntitySet="excluser">
+      <EndProperty Name="maladies">
+        <ScalarProperty Name="nomMaladie" ColumnName="nomMaladie" />
+      </EndProperty>
+      <EndProperty Name="repas">
+        <ScalarProperty Name="label" ColumnName="label" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="filtrerExercice" TypeName="MyFitnessModel.filtrerExercice" StoreEntitySet="filtrerExercice">
+      <EndProperty Name="exercices">
+        <ScalarProperty Name="idExercice" ColumnName="idExercice" />
+      </EndProperty>
+      <EndProperty Name="reponses">
+        <ScalarProperty Name="idReponse" ColumnName="idReponse" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="filtrerRepas" TypeName="MyFitnessModel.filtrerRepas" StoreEntitySet="filtrerRepas">
+      <EndProperty Name="repas">
+        <ScalarProperty Name="label" ColumnName="label" />
+      </EndProperty>
+      <EndProperty Name="reponses">
+        <ScalarProperty Name="idReponse" ColumnName="idReponse" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="repondre" TypeName="MyFitnessModel.repondre" StoreEntitySet="repondre">
+      <EndProperty Name="clients">
+        <ScalarProperty Name="idClient" ColumnName="idClient" />
+      </EndProperty>
+      <EndProperty Name="reponses">
+        <ScalarProperty Name="idReponse" ColumnName="idReponse" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

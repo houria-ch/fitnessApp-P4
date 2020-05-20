@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyFitnessModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="appartient">
+    <Key>
+      <PropertyRef Name="type" />
+      <PropertyRef Name="idExercice" />
+    </Key>
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idExercice" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="avoir">
+    <Key>
+      <PropertyRef Name="idReponse" />
+      <PropertyRef Name="nomMaladie" />
+    </Key>
+    <Property Name="idReponse" Type="int" Nullable="false" />
+    <Property Name="nomMaladie" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="avoirRole">
+    <Key>
+      <PropertyRef Name="idRole" />
+      <PropertyRef Name="idCoach" />
+      <PropertyRef Name="idClient" />
+      <PropertyRef Name="idSpecN" />
+      <PropertyRef Name="idGestionnaire" />
+    </Key>
+    <Property Name="idRole" Type="int" Nullable="false" />
+    <Property Name="idCoach" Type="int" Nullable="false" />
+    <Property Name="idClient" Type="int" Nullable="false" />
+    <Property Name="idSpecN" Type="int" Nullable="false" />
+    <Property Name="idGestionnaire" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="clients">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="coach">
+    <Key>
+      <PropertyRef Name="idCoach" />
+    </Key>
+    <Property Name="idCoach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="bio" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="composer">
+    <Key>
+      <PropertyRef Name="nom" />
+      <PropertyRef Name="label" />
+    </Key>
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quentite" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="consulter">
+    <Key>
+      <PropertyRef Name="idExercice" />
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idExercice" Type="int" Nullable="false" />
+    <Property Name="idClient" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="excluser">
+    <Key>
+      <PropertyRef Name="label" />
+      <PropertyRef Name="nomMaladie" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nomMaladie" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="exercices">
+    <Key>
+      <PropertyRef Name="idExercice" />
+    </Key>
+    <Property Name="idExercice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="duree" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="freqence" Type="int" Nullable="false" />
+    <Property Name="idCoach" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="filtrerExercice">
+    <Key>
+      <PropertyRef Name="idReponse" />
+      <PropertyRef Name="idExercice" />
+    </Key>
+    <Property Name="idReponse" Type="int" Nullable="false" />
+    <Property Name="idExercice" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="filtrerRepas">
+    <Key>
+      <PropertyRef Name="label" />
+      <PropertyRef Name="idReponse" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idReponse" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gestionnaire">
+    <Key>
+      <PropertyRef Name="idGestionnaire" />
+    </Key>
+    <Property Name="idGestionnaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ingredients">
+    <Key>
+      <PropertyRef Name="nom" />
+    </Key>
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="calories" Type="float" Nullable="false" />
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="maladies">
+    <Key>
+      <PropertyRef Name="nomMaladie" />
+    </Key>
+    <Property Name="nomMaladie" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="questions">
+    <Key>
+      <PropertyRef Name="label" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idGestionnaire" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="repas">
+    <Key>
+      <PropertyRef Name="label" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idSpecN" Type="int" Nullable="false" />
+    <Property Name="label_typeRepas" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="repondre">
+    <Key>
+      <PropertyRef Name="idReponse" />
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idReponse" Type="int" Nullable="false" />
+    <Property Name="idClient" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reponses">
+    <Key>
+      <PropertyRef Name="idReponse" />
+    </Key>
+    <Property Name="idReponse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reponse" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="juste" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="int" Nullable="false" />
+    <Property Name="nomRole" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="specNutrition">
+    <Key>
+      <PropertyRef Name="idSpecN" />
+    </Key>
+    <Property Name="idSpecN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="bio" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typeIngredient">
+    <Key>
+      <PropertyRef Name="label" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typeOfExercice">
+    <Key>
+      <PropertyRef Name="type" />
+    </Key>
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typeRepas">
+    <Key>
+      <PropertyRef Name="label" />
+    </Key>
+    <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="appartient_exercices0_FK">
+    <End Role="exercices" Type="Self.exercices" Multiplicity="1" />
+    <End Role="appartient" Type="Self.appartient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exercices">
+        <PropertyRef Name="idExercice" />
+      </Principal>
+      <Dependent Role="appartient">
+        <PropertyRef Name="idExercice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="appartient_typeOfExercice_FK">
+    <End Role="typeOfExercice" Type="Self.typeOfExercice" Multiplicity="1" />
+    <End Role="appartient" Type="Self.appartient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeOfExercice">
+        <PropertyRef Name="type" />
+      </Principal>
+      <Dependent Role="appartient">
+        <PropertyRef Name="type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoir_maladies0_FK">
+    <End Role="maladies" Type="Self.maladies" Multiplicity="1" />
+    <End Role="avoir" Type="Self.avoir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="maladies">
+        <PropertyRef Name="nomMaladie" />
+      </Principal>
+      <Dependent Role="avoir">
+        <PropertyRef Name="nomMaladie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoir_reponses_FK">
+    <End Role="reponses" Type="Self.reponses" Multiplicity="1" />
+    <End Role="avoir" Type="Self.avoir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reponses">
+        <PropertyRef Name="idReponse" />
+      </Principal>
+      <Dependent Role="avoir">
+        <PropertyRef Name="idReponse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoirRole_clients1_FK">
+    <End Role="clients" Type="Self.clients" Multiplicity="1" />
+    <End Role="avoirRole" Type="Self.avoirRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="avoirRole">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoirRole_coach0_FK">
+    <End Role="coach" Type="Self.coach" Multiplicity="1" />
+    <End Role="avoirRole" Type="Self.avoirRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coach">
+        <PropertyRef Name="idCoach" />
+      </Principal>
+      <Dependent Role="avoirRole">
+        <PropertyRef Name="idCoach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoirRole_gestionnaire3_FK">
+    <End Role="gestionnaire" Type="Self.gestionnaire" Multiplicity="1" />
+    <End Role="avoirRole" Type="Self.avoirRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gestionnaire">
+        <PropertyRef Name="idGestionnaire" />
+      </Principal>
+      <Dependent Role="avoirRole">
+        <PropertyRef Name="idGestionnaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoirRole_role_FK">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="avoirRole" Type="Self.avoirRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="avoirRole">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="avoirRole_specNutrition2_FK">
+    <End Role="specNutrition" Type="Self.specNutrition" Multiplicity="1" />
+    <End Role="avoirRole" Type="Self.avoirRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="specNutrition">
+        <PropertyRef Name="idSpecN" />
+      </Principal>
+      <Dependent Role="avoirRole">
+        <PropertyRef Name="idSpecN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="composer_ingredients_FK">
+    <End Role="ingredients" Type="Self.ingredients" Multiplicity="1" />
+    <End Role="composer" Type="Self.composer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ingredients">
+        <PropertyRef Name="nom" />
+      </Principal>
+      <Dependent Role="composer">
+        <PropertyRef Name="nom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="composer_repas0_FK">
+    <End Role="repas" Type="Self.repas" Multiplicity="1" />
+    <End Role="composer" Type="Self.composer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="repas">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="composer">
+        <PropertyRef Name="label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="consulter_clients0_FK">
+    <End Role="clients" Type="Self.clients" Multiplicity="1" />
+    <End Role="consulter" Type="Self.consulter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="consulter">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="consulter_exercices_FK">
+    <End Role="exercices" Type="Self.exercices" Multiplicity="1" />
+    <End Role="consulter" Type="Self.consulter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exercices">
+        <PropertyRef Name="idExercice" />
+      </Principal>
+      <Dependent Role="consulter">
+        <PropertyRef Name="idExercice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="excluser_maladies0_FK">
+    <End Role="maladies" Type="Self.maladies" Multiplicity="1" />
+    <End Role="excluser" Type="Self.excluser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="maladies">
+        <PropertyRef Name="nomMaladie" />
+      </Principal>
+      <Dependent Role="excluser">
+        <PropertyRef Name="nomMaladie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="excluser_repas_FK">
+    <End Role="repas" Type="Self.repas" Multiplicity="1" />
+    <End Role="excluser" Type="Self.excluser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="repas">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="excluser">
+        <PropertyRef Name="label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="exercices_coach_FK">
+    <End Role="coach" Type="Self.coach" Multiplicity="1" />
+    <End Role="exercices" Type="Self.exercices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="coach">
+        <PropertyRef Name="idCoach" />
+      </Principal>
+      <Dependent Role="exercices">
+        <PropertyRef Name="idCoach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="filtrerExercice_exercices0_FK">
+    <End Role="exercices" Type="Self.exercices" Multiplicity="1" />
+    <End Role="filtrerExercice" Type="Self.filtrerExercice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exercices">
+        <PropertyRef Name="idExercice" />
+      </Principal>
+      <Dependent Role="filtrerExercice">
+        <PropertyRef Name="idExercice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="filtrerExercice_reponses_FK">
+    <End Role="reponses" Type="Self.reponses" Multiplicity="1" />
+    <End Role="filtrerExercice" Type="Self.filtrerExercice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reponses">
+        <PropertyRef Name="idReponse" />
+      </Principal>
+      <Dependent Role="filtrerExercice">
+        <PropertyRef Name="idReponse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="filtrerRepas_repas_FK">
+    <End Role="repas" Type="Self.repas" Multiplicity="1" />
+    <End Role="filtrerRepas" Type="Self.filtrerRepas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="repas">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="filtrerRepas">
+        <PropertyRef Name="label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="filtrerRepas_reponses0_FK">
+    <End Role="reponses" Type="Self.reponses" Multiplicity="1" />
+    <End Role="filtrerRepas" Type="Self.filtrerRepas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reponses">
+        <PropertyRef Name="idReponse" />
+      </Principal>
+      <Dependent Role="filtrerRepas">
+        <PropertyRef Name="idReponse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ingredients_typeIngredient_FK">
+    <End Role="typeIngredient" Type="Self.typeIngredient" Multiplicity="1" />
+    <End Role="ingredients" Type="Self.ingredients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeIngredient">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="ingredients">
+        <PropertyRef Name="label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="questions_gestionnaire_FK">
+    <End Role="gestionnaire" Type="Self.gestionnaire" Multiplicity="1" />
+    <End Role="questions" Type="Self.questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gestionnaire">
+        <PropertyRef Name="idGestionnaire" />
+      </Principal>
+      <Dependent Role="questions">
+        <PropertyRef Name="idGestionnaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="repas_specNutrition_FK">
+    <End Role="specNutrition" Type="Self.specNutrition" Multiplicity="1" />
+    <End Role="repas" Type="Self.repas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="specNutrition">
+        <PropertyRef Name="idSpecN" />
+      </Principal>
+      <Dependent Role="repas">
+        <PropertyRef Name="idSpecN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="repas_typeRepas0_FK">
+    <End Role="typeRepas" Type="Self.typeRepas" Multiplicity="1" />
+    <End Role="repas" Type="Self.repas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeRepas">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="repas">
+        <PropertyRef Name="label_typeRepas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="repondre_clients0_FK">
+    <End Role="clients" Type="Self.clients" Multiplicity="1" />
+    <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clients">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="repondre">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="repondre_reponses_FK">
+    <End Role="reponses" Type="Self.reponses" Multiplicity="1" />
+    <End Role="repondre" Type="Self.repondre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reponses">
+        <PropertyRef Name="idReponse" />
+      </Principal>
+      <Dependent Role="repondre">
+        <PropertyRef Name="idReponse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reponses_questions_FK">
+    <End Role="questions" Type="Self.questions" Multiplicity="1" />
+    <End Role="reponses" Type="Self.reponses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="questions">
+        <PropertyRef Name="label" />
+      </Principal>
+      <Dependent Role="reponses">
+        <PropertyRef Name="label" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyFitnessModelStoreContainer">
+    <EntitySet Name="appartient" EntityType="Self.appartient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="avoir" EntityType="Self.avoir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="avoirRole" EntityType="Self.avoirRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="clients" EntityType="Self.clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="coach" EntityType="Self.coach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="composer" EntityType="Self.composer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="consulter" EntityType="Self.consulter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="excluser" EntityType="Self.excluser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="exercices" EntityType="Self.exercices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="filtrerExercice" EntityType="Self.filtrerExercice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="filtrerRepas" EntityType="Self.filtrerRepas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="gestionnaire" EntityType="Self.gestionnaire" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ingredients" EntityType="Self.ingredients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maladies" EntityType="Self.maladies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="questions" EntityType="Self.questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="repas" EntityType="Self.repas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="repondre" EntityType="Self.repondre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reponses" EntityType="Self.reponses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="specNutrition" EntityType="Self.specNutrition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="typeIngredient" EntityType="Self.typeIngredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="typeOfExercice" EntityType="Self.typeOfExercice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="typeRepas" EntityType="Self.typeRepas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="appartient_exercices0_FK" Association="Self.appartient_exercices0_FK">
+      <End Role="exercices" EntitySet="exercices" />
+      <End Role="appartient" EntitySet="appartient" />
+    </AssociationSet>
+    <AssociationSet Name="appartient_typeOfExercice_FK" Association="Self.appartient_typeOfExercice_FK">
+      <End Role="typeOfExercice" EntitySet="typeOfExercice" />
+      <End Role="appartient" EntitySet="appartient" />
+    </AssociationSet>
+    <AssociationSet Name="avoir_maladies0_FK" Association="Self.avoir_maladies0_FK">
+      <End Role="maladies" EntitySet="maladies" />
+      <End Role="avoir" EntitySet="avoir" />
+    </AssociationSet>
+    <AssociationSet Name="avoir_reponses_FK" Association="Self.avoir_reponses_FK">
+      <End Role="reponses" EntitySet="reponses" />
+      <End Role="avoir" EntitySet="avoir" />
+    </AssociationSet>
+    <AssociationSet Name="avoirRole_clients1_FK" Association="Self.avoirRole_clients1_FK">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="avoirRole" EntitySet="avoirRole" />
+    </AssociationSet>
+    <AssociationSet Name="avoirRole_coach0_FK" Association="Self.avoirRole_coach0_FK">
+      <End Role="coach" EntitySet="coach" />
+      <End Role="avoirRole" EntitySet="avoirRole" />
+    </AssociationSet>
+    <AssociationSet Name="avoirRole_gestionnaire3_FK" Association="Self.avoirRole_gestionnaire3_FK">
+      <End Role="gestionnaire" EntitySet="gestionnaire" />
+      <End Role="avoirRole" EntitySet="avoirRole" />
+    </AssociationSet>
+    <AssociationSet Name="avoirRole_role_FK" Association="Self.avoirRole_role_FK">
+      <End Role="role" EntitySet="role" />
+      <End Role="avoirRole" EntitySet="avoirRole" />
+    </AssociationSet>
+    <AssociationSet Name="avoirRole_specNutrition2_FK" Association="Self.avoirRole_specNutrition2_FK">
+      <End Role="specNutrition" EntitySet="specNutrition" />
+      <End Role="avoirRole" EntitySet="avoirRole" />
+    </AssociationSet>
+    <AssociationSet Name="composer_ingredients_FK" Association="Self.composer_ingredients_FK">
+      <End Role="ingredients" EntitySet="ingredients" />
+      <End Role="composer" EntitySet="composer" />
+    </AssociationSet>
+    <AssociationSet Name="composer_repas0_FK" Association="Self.composer_repas0_FK">
+      <End Role="repas" EntitySet="repas" />
+      <End Role="composer" EntitySet="composer" />
+    </AssociationSet>
+    <AssociationSet Name="consulter_clients0_FK" Association="Self.consulter_clients0_FK">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="consulter" EntitySet="consulter" />
+    </AssociationSet>
+    <AssociationSet Name="consulter_exercices_FK" Association="Self.consulter_exercices_FK">
+      <End Role="exercices" EntitySet="exercices" />
+      <End Role="consulter" EntitySet="consulter" />
+    </AssociationSet>
+    <AssociationSet Name="excluser_maladies0_FK" Association="Self.excluser_maladies0_FK">
+      <End Role="maladies" EntitySet="maladies" />
+      <End Role="excluser" EntitySet="excluser" />
+    </AssociationSet>
+    <AssociationSet Name="excluser_repas_FK" Association="Self.excluser_repas_FK">
+      <End Role="repas" EntitySet="repas" />
+      <End Role="excluser" EntitySet="excluser" />
+    </AssociationSet>
+    <AssociationSet Name="exercices_coach_FK" Association="Self.exercices_coach_FK">
+      <End Role="coach" EntitySet="coach" />
+      <End Role="exercices" EntitySet="exercices" />
+    </AssociationSet>
+    <AssociationSet Name="filtrerExercice_exercices0_FK" Association="Self.filtrerExercice_exercices0_FK">
+      <End Role="exercices" EntitySet="exercices" />
+      <End Role="filtrerExercice" EntitySet="filtrerExercice" />
+    </AssociationSet>
+    <AssociationSet Name="filtrerExercice_reponses_FK" Association="Self.filtrerExercice_reponses_FK">
+      <End Role="reponses" EntitySet="reponses" />
+      <End Role="filtrerExercice" EntitySet="filtrerExercice" />
+    </AssociationSet>
+    <AssociationSet Name="filtrerRepas_repas_FK" Association="Self.filtrerRepas_repas_FK">
+      <End Role="repas" EntitySet="repas" />
+      <End Role="filtrerRepas" EntitySet="filtrerRepas" />
+    </AssociationSet>
+    <AssociationSet Name="filtrerRepas_reponses0_FK" Association="Self.filtrerRepas_reponses0_FK">
+      <End Role="reponses" EntitySet="reponses" />
+      <End Role="filtrerRepas" EntitySet="filtrerRepas" />
+    </AssociationSet>
+    <AssociationSet Name="ingredients_typeIngredient_FK" Association="Self.ingredients_typeIngredient_FK">
+      <End Role="typeIngredient" EntitySet="typeIngredient" />
+      <End Role="ingredients" EntitySet="ingredients" />
+    </AssociationSet>
+    <AssociationSet Name="questions_gestionnaire_FK" Association="Self.questions_gestionnaire_FK">
+      <End Role="gestionnaire" EntitySet="gestionnaire" />
+      <End Role="questions" EntitySet="questions" />
+    </AssociationSet>
+    <AssociationSet Name="repas_specNutrition_FK" Association="Self.repas_specNutrition_FK">
+      <End Role="specNutrition" EntitySet="specNutrition" />
+      <End Role="repas" EntitySet="repas" />
+    </AssociationSet>
+    <AssociationSet Name="repas_typeRepas0_FK" Association="Self.repas_typeRepas0_FK">
+      <End Role="typeRepas" EntitySet="typeRepas" />
+      <End Role="repas" EntitySet="repas" />
+    </AssociationSet>
+    <AssociationSet Name="repondre_clients0_FK" Association="Self.repondre_clients0_FK">
+      <End Role="clients" EntitySet="clients" />
+      <End Role="repondre" EntitySet="repondre" />
+    </AssociationSet>
+    <AssociationSet Name="repondre_reponses_FK" Association="Self.repondre_reponses_FK">
+      <End Role="reponses" EntitySet="reponses" />
+      <End Role="repondre" EntitySet="repondre" />
+    </AssociationSet>
+    <AssociationSet Name="reponses_questions_FK" Association="Self.reponses_questions_FK">
+      <End Role="questions" EntitySet="questions" />
+      <End Role="reponses" EntitySet="reponses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
